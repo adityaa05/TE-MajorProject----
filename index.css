@@ -58,7 +58,14 @@ body, html {
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden; /* Completely hide the navbar on the first half */
-    transition: transform 0.7s ease-in-out, opacity 0.4s ease-in-out, visibility 0s 0.7s;
+    transition: opacity 0.4s ease-in-out, transform 0.7s ease-in-out, visibility 0s 0.7s;
+}
+
+#navbar.navbar-stationary {
+    transition: none; /* Disable further transitions */
+    transform: translateY(0); /* Fix in place */
+    opacity: 1; /* Ensure full visibility */
+    visibility: visible; /* Ensure it's visible */
 }
 
 #navbar-title {
