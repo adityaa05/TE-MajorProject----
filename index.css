@@ -1,25 +1,14 @@
 /* General Styles */
-body,
-html {
+body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     overflow: hidden;
-    /* Hide the scrollbar */
     background-color: #000;
-    /* Match background color to prevent any white lines */
 }
 
-#intro-section {
-    font-family: "Tiro Devanagari Sanskrit", serif;
-    font-size: 4rem;
-    color: yellow;
-}
-
-#intro-section,
-#signup-login-section {
+#intro-section, #signup-login-section {
     height: 100vh;
-    /* Full viewport height */
     width: 100%;
     display: flex;
     justify-content: center;
@@ -27,24 +16,25 @@ html {
     position: fixed;
     top: 0;
     left: 0;
-    /*background-image: url("chocolate-bg.jpg");*/
     background-color: #042558;
     background-size: cover;
     background-position: center;
-    transition: transform 1s ease, scale 1s ease, opacity 0.5s ease;
-    /* Added opacity transition */
+    transition: transform 0.7s ease-in-out, opacity 0.5s ease-in-out;
     transform-origin: top;
-    /* Ensure scaling is centered from the top */
     transform: scale(1.01);
-    /* Slightly scale up to cover any potential gaps */
 }
 
 #signup-login-section {
     transform: translateY(100%) scale(1.01);
-    /* Apply scale to the transition state too */
 }
 
-/* Subtitle Styles */
+#intro-title {
+    font-family: "Tiro Devanagari Sanskrit", serif;
+    font-size: 4rem;
+    color: yellow;
+    transition: transform 0.7s ease-in-out, font-size 0.7s ease-in-out, opacity 0.5s ease-in-out;
+}
+
 #subtitle {
     position: absolute;
     bottom: 20px;
@@ -54,17 +44,63 @@ html {
     font-size: 1.5rem;
     opacity: 1;
     transition: opacity 0.5s ease;
-    /* Smooth opacity transition */
 }
 
-/* Link and Button Styles */
-#temp-links {
-    padding: 20px;
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden; /* Completely hide the navbar on the first half */
+    transition: transform 0.7s ease-in-out, opacity 0.4s ease-in-out, visibility 0s 0.7s;
 }
 
-#sign-up-link,
-#log-in-link {
+#navbar-title {
     font-size: 2rem;
-    color: #004445;
-    font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+    color: yellow;
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Main Content */
+#main-content {
+    margin-top: 60px;
+    color: white;
+    text-align: center;
+}
+
+/* Animation for Slide-Up Effect */
+@keyframes slideUp {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+/* Animation for Fade-In Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
